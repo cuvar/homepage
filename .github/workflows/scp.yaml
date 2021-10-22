@@ -2,7 +2,7 @@ name: Deploy to server
 
 on:
   push:
-    branches: [main]
+    # branches: [main]
 
 jobs:
   build:
@@ -15,14 +15,13 @@ jobs:
           node-version: "16.x"
       - name: Create build output
         run: |
-          cd client
           npm install
           npm run build
           cd ..
       - name: Copy to production via SCP
         uses: appleboy/scp-action@master
         with:
-          host: ${{ secrets.HOST }}
+          host: ${{ secrets.HOSTN }}
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.PRIVATEKEY }}
           source: client/build
