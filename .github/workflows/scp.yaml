@@ -22,7 +22,7 @@ jobs:
         with:
           host: ${{ secrets.HOSTN }}
           username: ${{ secrets.USERNAME }}
-          key: ${{ secrets.PUBLICKEY }}
+          key: ${{ secrets.PRIVATEKEY }}
           source: .next
           target: content
           debug: true
