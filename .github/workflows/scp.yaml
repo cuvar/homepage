@@ -2,10 +2,10 @@ name: Deploy to server
 
 on:
   push:
-    # branches: [main]
+    branches: [pipeline]
 
 jobs:
-  build:
+  build:c
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -23,8 +23,8 @@ jobs:
         with:
           host: ${{ secrets.HOSTN }}
           username: ${{ secrets.USERNAME }}
-          key: ${{ secrets.PRIVATEKEY }}
-          source: client/build
+          key: ${{ secrets.PUBLICKEY }}
+          source: build
           target: content
           debug: true
           rm: true
