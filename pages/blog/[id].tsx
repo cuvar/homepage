@@ -1,7 +1,8 @@
-import { getAllPostIds, getPostData } from '../../util/posts';
+import { getAllPostIds, getPostData, setPostStyling } from '../../util/posts';
 
 export async function getStaticProps({ params }) {
-  const postData = await getPostData(params.id);
+  const posts = await getPostData(params.id);
+  const postData = setPostStyling(posts);
   return {
     props: {
       postData,

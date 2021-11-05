@@ -1,14 +1,13 @@
-export default function Navbar() {
+import Link from '../Link';
+
+export default function Footer() {
   return (
     <footer className='bg-gray-800 py-8'>
       <div className='flex justify-center mb-8'>
         {['Imprint', 'Privacy'].map((item, index) => (
-          <a
-            href={'/' + item.toLowerCase()}
-            key={index}
-            className='text-beigewhite hover:underline mx-2 text-lg active:text-byzantium'>
+          <Link href={'/' + item.toLowerCase()} key={index} className='mx-2'>
             {item}
-          </a>
+          </Link>
         ))}
       </div>
       <p className='text-center text-beigewhite'>&copy; 2021 Copyright cuvar</p>

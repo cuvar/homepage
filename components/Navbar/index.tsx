@@ -1,4 +1,5 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
+import Link from '../Link';
 
 export default function Navbar() {
   let navbarContent: string[] = ['About', 'Blog', 'Projects', 'GitHub'];
@@ -35,7 +36,9 @@ export default function Navbar() {
   return (
     <div className='bg-gray-800 text-beigewhite flex flex-col sm:flex-row justify-between py-8 px-5'>
       <div className='flex flex-row justify-between'>
-        <p className='text-3xl font-bold'>cuvar</p>
+        <Link href='/' className='hover:no-underline hover:text-customgreen'>
+          <p className='text-3xl font-bold'>cuvar</p>
+        </Link>
         <button
           className='text-2xl inline sm:hidden'
           onClick={() => setShowLinks(!showLinks)}>
@@ -48,12 +51,12 @@ export default function Navbar() {
         }>
         {navbarContent.map((item: string, index: number) => {
           return (
-            <a
+            <Link
               href={'/' + item.toLowerCase()}
               key={index}
-              className='block sm:inline-block my-4 sm:my-auto sm:mx-2 text-xl sm:text-xl hover:underline active:text-byzantium'>
+              className='block sm:inline-block my-4 sm:my-auto sm:mx-2 text-xl sm:text-xl'>
               {item}
-            </a>
+            </Link>
           );
         })}
       </nav>
