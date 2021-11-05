@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 
 export default function Navbar() {
-  let navbarContent: string[] = ['About', 'Blog', 'Projects', 'GH'];
+  let navbarContent: string[] = ['About', 'Blog', 'Projects', 'GitHub'];
 
   let [showLinks, setShowLinks] = useState(false);
 
