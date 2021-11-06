@@ -34,9 +34,9 @@ export default function Navbar() {
     </svg>
   );
   return (
-    <div className='bg-gray-800 text-beigewhite flex flex-col sm:flex-row justify-between py-8 px-5'>
+    <div className='bg-gray-800 text-beigewhite-500 flex flex-col sm:flex-row justify-between py-8 px-5'>
       <div className='flex flex-row justify-between'>
-        <Link href='/' className='hover:no-underline hover:text-customgreen'>
+        <Link href='/' className='hover:no-underline hover:text-crayola-200'>
           <p className='text-3xl font-bold'>cuvar</p>
         </Link>
         <button

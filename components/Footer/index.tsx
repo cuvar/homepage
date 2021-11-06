@@ -10,7 +10,9 @@ export default function Footer() {
           </Link>
         ))}
       </div>
-      <p className='text-center text-beigewhite'>&copy; 2021 Copyright cuvar</p>
+      <p className='text-center text-beigewhite-500'>
+        &copy; 2021 Copyright cuvar
+      </p>
     </footer>
   );
 }

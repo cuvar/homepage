@@ -19,18 +19,18 @@ interface IPageProps {
 
 const Blog: NextPage<IPageProps> = (props: IPageProps) => {
   return (
-    <div className='bg-oxford h-screen'>
+    <div className='bg-oxford-500 h-screen'>
       <Head>
         <title>cuvar | Blog</title>
         <meta name='description' content='My blog' />
       </Head>
 
       <main className='h-screen flex flex-col justify-center align-items-center'>
-        <h1 className='my-auto text-5xl font-extrabold text-center text-transparent bg-clip-text bg-gradient-to-r from-gradientred to-gradientblue'>
+        <h1 className='my-auto text-5xl font-extrabold text-center text-transparent bg-clip-text bg-gradient-to-r from-byzantium-500 to-crayola-700'>
           This is the blog section for my homepage
         </h1>
-        <div className='text-beigewhite mb-32'>
-          <h2 className='text-2xl text-center font-bold text-glaucous'>
+        <div className='text-beigewhite-500 mb-32'>
+          <h2 className='text-2xl text-center font-bold text-crayola-200'>
             Recent posts
           </h2>
           <div className='flex flex-col items-center'>

@@ -11,7 +11,7 @@ export default function CustomLink(props: ILinkProps) {
     <Link href={props.href}>
       <a
         className={
-          'text-beigewhite hover:underline text-lg active:text-byzantium' +
+          'text-beigewhite-500 hover:underline text-lg active:text-byzantium-500' +
           ' ' +
           props.className
         }>
