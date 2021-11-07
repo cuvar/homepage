@@ -35,7 +35,12 @@ export function getSortedPostsData(): any[] {
 }
 
 export function getRecentPostsData(): any[] {
-  const fileNames: string[] = fs.readdirSync(postsDirectory);
+  const fileNames: string[] = fs
+    .readdirSync(postsDirectory)
+    .filter((fileName) => {
+      return fileName.endsWith('.md');
+    });
+
   const allPostsData: any[] = fileNames.map((fileName) => {
     const id: string = fileName.replace(/\.md$/, '');
     const fullPath: string = path.join(postsDirectory, fileName);
@@ -62,8 +67,20 @@ export function getRecentPostsData(): any[] {
 }
 
 function getFirstLineFromPost(id: string): string {
-  return 'Hello world out there';
+  const fullPath: string = path.join(postsDirectory, `${id}.html`);
+  const fileContents: any = fs.readFileSync(fullPath, 'utf8');
+  let value: string[] = fileContents
+    .replace(/<.*>/g, '')
+    .replace(/<\/.*>/g, '')
+    .split('\n')
+    .filter((e) => e.trim() !== '');
+
+  const valueString: string = value.join(' ').slice(0, 130) + '...';
+  console.log(valueString);
+
+  return valueString;
 }
+
 export function getAllPostIds(): any[] {
   const fileNames: string[] = fs.readdirSync(postsDirectory);
   return fileNames.map((fileName: string) => {
@@ -89,6 +106,11 @@ export async function getPostData(id: number) {
   // console.error(reporter(processedContent));
   // console.log(String(processedContent));
   const contentHtml = processedContent.toString();
+  fs.writeFileSync(
+    path.join(postsDirectory, `${id}.html`),
+    contentHtml,
+    'utf8'
+  );
 
   return {
     id,
@@ -97,7 +119,28 @@ export async function getPostData(id: number) {
   };
 }
 
+export function doesPostExist(id: number): boolean {
+  const fileNames: string[] = fs.readdirSync(postsDirectory);
+  return fileNames.includes(`${id}.md`);
+}
+
 export function setPostStyling(postData: any) {
   const modifiedPostData: any = postData;
   return modifiedPostData;
 }
+
+// export function createNewBlog(content: string) {
+//   const post = getMostRecentPost();
+
+//   // fs.writeFileSync()
+// }
+
+// export function getMostRecentPost(): any {
+//   const fileNames: string[] = fs.readdirSync(postsDirectory);
+//   const allPostsData: any[] = fileNames.map((fileName) => {
+//     const id: string = fileName.replace(/\.md$/, '');
+//     return id;
+//   });
+
+//   console.log(allPostsData);
+// }

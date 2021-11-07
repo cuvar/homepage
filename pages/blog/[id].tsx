@@ -1,31 +1,105 @@
-import { getAllPostIds, getPostData, setPostStyling } from '../../util/posts';
+import { getPostData, doesPostExist } from '../../util/posts';
+import Head from 'next/head';
+import SiteWrapper from '../../components/SiteWrapper';
+import Title from '../../components/Title/h2';
+import Link from '../../components/Link/outline-icon';
+import BreadCrumbs from '../../components/BreadCrumbs';
+import React from 'react';
 
-export async function getStaticProps({ params }) {
-  const posts = await getPostData(params.id);
-  const postData = setPostStyling(posts);
+export async function getServerSideProps({ params }) {
+  const id: number = Number(params.id);
+  const postData = await getPostData(id);
+  let hasPrevPost = doesPostExist(id - 1);
+  let hasNextPost = doesPostExist(id + 1);
+
   return {
     props: {
       postData,
+      hasPrevPost,
+      hasNextPost,
     },
   };
 }
 
-export async function getStaticPaths() {
-  const paths = getAllPostIds();
-  return {
-    paths,
-    fallback: false,
-  };
+const rightIcon = (
+  <svg
+    xmlns='http://www.w3.org/2000/svg'
+    className='h-6 w-6'
+    fill='none'
+    viewBox='0 0 24 24'
+    stroke='currentColor'>
+    <path
+      strokeLinecap='round'
+      strokeLinejoin='round'
+      strokeWidth={2}
+      d='M9 5l7 7-7 7'
+    />
+  </svg>
+);
+
+const leftIcon = (
+  <svg
+    xmlns='http://www.w3.org/2000/svg'
+    className='h-6 w-6'
+    fill='none'
+    viewBox='0 0 24 24'
+    stroke='currentColor'>
+    <path
+      strokeLinecap='round'
+      strokeLinejoin='round'
+      strokeWidth={2}
+      d='M15 19l-7-7 7-7'
+    />
+  </svg>
+);
+
+interface IProps {
+  postData: any;
+  hasNextPost: boolean;
+  hasPrevPost: boolean;
 }
 
-export default function Post({ postData }) {
+export default function Post(props: IProps) {
+  const head = (
+    <Head>
+      <title>cuvar | Blog</title>
+      <meta name='description' content={"cuvar's blog"} />
+    </Head>
+  );
+
+  // let elements = [
+  //   {
+  //     name: 'Blog',
+  //     href: '/blog',
+  //   },
+  //   {
+  //     name: 'Current Post',
+  //     href: '#',
+  //   },
+  // ];
   return (
-    <div className='bg-oxford-500 h-screen text-beigewhite-500'>
-      <main>
-        <h1 className='text-xl font-bold text-center pt-2'>{postData.title}</h1>
-        <div className='text-center italic'>{postData.date}</div>
-        <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
-      </main>
-    </div>
+    <SiteWrapper head={head} className='h-screen'>
+      {/* <BreadCrumbs elements={elements} /> */}
+
+      <Title>{props.postData.title}</Title>
+      <div className='text-center italic'>{props.postData.date}</div>
+      <div dangerouslySetInnerHTML={{ __html: props.postData.contentHtml }} />
+      <div className='flex justify-between mt-8 space-x-8'>
+        <Link
+          icon={leftIcon}
+          children={'Previous post'}
+          className='flex-auto flex justify-start py-4'
+          inactive={!props.hasPrevPost}
+          href={'/blog/' + Number(props.postData.id - 1)}
+        />
+        <Link
+          icon={rightIcon}
+          children={'Next post'}
+          className='flex-auto flex flex-row-reverse justify-start py-4'
+          inactive={!props.hasNextPost}
+          href={'/blog/' + (Number(props.postData.id) + 1)}
+        />
+      </div>
+    </SiteWrapper>
   );
 }
