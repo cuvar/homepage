@@ -79,8 +79,8 @@ export async function getSortedPosts(asc: boolean): Promise<IPost[]> {
 }
 
 export async function createPost(content: string) {
-  const post = await getSortedPosts(false)[0];
-  console.log(post);
+  const post = await getSortedPosts(false);
+  console.log(post[0]);
 
   // const newPostId = post.id + 1;
   // const newPostFileName = `${newPostId}.md`;
