@@ -9,7 +9,7 @@ interface IProps {
 
 export default function SiteWrapper(props: IProps) {
   return (
-    <div className='bg-oxford-500 h-screen flex flex-col justify-between'>
+    <div className='bg-oxford-500 min-h-screen flex flex-col justify-between'>
       {props.head}
       <Navbar className='flex-initial' />
       <main className='text-beigewhite-500 flex-auto flex flex-col justify-start items-center'>
