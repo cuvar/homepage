@@ -67,19 +67,24 @@ export default function Post(props: IProps) {
     </Head>
   );
 
-  // let elements = [
-  //   {
-  //     name: 'Blog',
-  //     href: '/blog',
-  //   },
-  //   {
-  //     name: 'Current Post',
-  //     href: '#',
-  //   },
-  // ];
+  interface IBreadCrumbs {
+    name: string;
+    href: string;
+  }
+
+  let elements: IBreadCrumbs[] = [
+    {
+      name: 'Blog',
+      href: '/blog',
+    },
+    {
+      name: 'Current Post',
+      href: '#',
+    },
+  ];
   return (
     <SiteWrapper head={head} className='h-screen'>
-      {/* <BreadCrumbs elements={elements} /> */}
+      <BreadCrumbs elements={elements} />
 
       <Title>{props.postData.title}</Title>
       <div className='text-center italic'>{props.postData.date}</div>

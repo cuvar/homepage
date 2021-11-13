@@ -11,7 +11,7 @@ interface IProps {
 export default function OutlineLink(props: IProps) {
   const styling = props.inactive
     ? 'text-gray-500 border-gray-500 pointer-events-none'
-    : 'ext-crayola-500 border-crayola-500 hover:text-crayola-200 hover:border-crayola-200 active:text-white active:border-crayola-900 active:bg-crayola-900';
+    : 'text-crayola-500 border-crayola-500 hover:text-crayola-200 hover:border-crayola-200 active:text-white active:border-crayola-900 active:bg-crayola-900';
   return (
     <Link href={props.href}>
       <a
