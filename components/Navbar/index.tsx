@@ -1,7 +1,11 @@
 import { useState } from 'react';
 import Link from '../Link';
 
-export default function Navbar() {
+interface IProps {
+  className?: string;
+}
+
+export default function Navbar(props: IProps) {
   let navbarContent: string[] = ['About', 'Blog', 'Projects'];
 
   let [showLinks, setShowLinks] = useState(false);
@@ -46,7 +50,12 @@ export default function Navbar() {
   );
 
   return (
-    <div className='bg-gray-800 text-beigewhite-500 flex flex-col sm:flex-row justify-between py-8 px-5'>
+    <div
+      className={
+        'bg-gray-800 text-beigewhite-500 flex flex-col sm:flex-row justify-between py-8 px-5' +
+        ' ' +
+        props.className
+      }>
       <div className='flex flex-row justify-between'>
         <Link href='/' className='hover:no-underline hover:text-crayola-200'>
           <p className='text-3xl font-bold'>cuvar</p>

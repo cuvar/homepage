@@ -1,8 +1,12 @@
 import Link from '../Link';
 
-export default function Footer() {
+interface IProps {
+  className?: string;
+}
+
+export default function Footer(props: IProps) {
   return (
-    <footer className='bg-gray-800 py-8'>
+    <footer className={'bg-gray-800 py-8' + ' ' + props.className}>
       <div className='flex justify-center mb-8'>
         {['Imprint', 'Privacy'].map((item, index) => (
           <Link href={'/' + item.toLowerCase()} key={index} className='mx-2'>

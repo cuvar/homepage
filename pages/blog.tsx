@@ -34,9 +34,9 @@ const Blog: NextPage<IPageProps> = (props: IPageProps) => {
           <Link
             href={`/blog/${id}`}
             key={index}
-            className='hover:no-underline hover:bg-gray-700 active:bg-gray-800 my-5 bg-gray-800 w-1/2 text-center rounded-lg py-6 px-4 flex flex-col'>
-            <h4 className='font-bold text-xl'>{title}</h4>
-            <p className='italic text-sm my-2'>{date}</p>
+            className='hover:no-underline hover:bg-gray-700 active:bg-gray-800 my-5 bg-gray-800 w-full md:w-1/2 text-center rounded-lg py-6 px-4 flex flex-col'>
+            <h4 className='font-bold text-lg md:text-xl'>{title}</h4>
+            <p className='italic text-xs md:text-sm my-2'>{date}</p>
             <hr className='mb-2 w-2/6 mx-auto' />
             <p>{firstline}</p>
           </Link>

@@ -6,10 +6,10 @@ import Footer from '../components/Footer';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <div className="">
-      <Navbar />
+    <div className=''>
+      {/* <Navbar /> */}
       <Component {...pageProps} />
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }
