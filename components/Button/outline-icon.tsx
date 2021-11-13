@@ -4,6 +4,7 @@ interface IProps {
   children: React.ReactNode;
   icon: React.ReactNode;
   inactive?: boolean;
+  type?: 'button' | 'submit' | 'reset';
 }
 
 export default function Button(props: IProps) {
@@ -13,6 +14,7 @@ export default function Button(props: IProps) {
   return (
     <button
       onClick={props.onClick}
+      type={props.type}
       className={
         'bg-transparent border rounded-md py-2 px-4 focus:outline-none' +
         ' ' +
