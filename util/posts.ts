@@ -70,7 +70,11 @@ export async function getSortedPosts(asc: boolean): Promise<IPost[]> {
   let allPosts: IPost[] = await getAllPosts();
 
   return allPosts.sort((a, b) => {
-    if (asc ? a.date < b.date : a.date > b.date) {
+    if (
+      asc
+        ? new Date(a.date) > new Date(b.date)
+        : new Date(a.date) < new Date(b.date)
+    ) {
       return 1;
     } else {
       return -1;
@@ -81,12 +85,15 @@ export async function getSortedPosts(asc: boolean): Promise<IPost[]> {
 export async function createPost(content: string) {
   const post = await getSortedPosts(false);
   console.log(post[0]);
+  let newPostId: string = (parseInt(post[0].id) + 1).toString();
+  const newPostMDFileName: string = `${newPostId}.md`;
+  const newPostHTMLFileName: string = `${newPostId}.html`;
+  const newPostMDFilePath: string = path.join(POST_DIR, newPostMDFileName);
+  const newPostHTMLFilePath: string = path.join(POST_DIR, newPostHTMLFileName);
+  let newFileData: IPostFileData = await markdownToPostData(content);
 
-  // const newPostId = post.id + 1;
-  // const newPostFileName = `${newPostId}.md`;
-  // const newPostFilePath = path.join(POST_DIR, newPostFileName);
-
-  // fs.writeFileSync()
+  fs.writeFileSync(newPostMDFilePath, content, 'utf8');
+  fs.writeFileSync(newPostHTMLFilePath, newFileData.html, 'utf8');
 }
 
 export function deletePost(id: string) {
@@ -101,19 +108,19 @@ export function getAllPostIds(): string[] {
 }
 
 function getFirstLineFromPost(id: string): string {
-  // const fullPath: string = path.join(POST_DIR, `${id}.html`);
-  // const fileContents: any = fs.readFileSync(fullPath, 'utf8');
-  // let value: string[] = fileContents
-  //   .replace(/<.*>/g, '')
-  //   .replace(/<\/.*>/g, '')
-  //   .split('\n')
-  //   .filter((e) => e.trim() !== '');
+  const fullPath: string = path.join(POST_DIR, `${id}.html`);
+  const fileContents: any = fs.readFileSync(fullPath, 'utf8');
+  let value: string[] = fileContents
+    .replace(/<.*>/g, '')
+    .replace(/<\/.*>/g, '')
+    .split('\n')
+    .filter((e) => e.trim() !== '');
 
-  // const valueString: string = value.join(' ').slice(0, 130) + '...';
-  // console.log(valueString);
+  const valueString: string = value.join(' ').slice(0, 130) + '...';
+  console.log(valueString);
 
-  // return valueString;
-  return 'First line of content';
+  return valueString;
+  // return 'First line of content';
 }
 
 async function markdownToPostData(
