@@ -1,12 +1,12 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
-import { getSortedPostsData } from '../../util/posts';
+import { getSortedPosts } from '../../util/posts';
 import Link from '../../components/Link';
 import SiteWrapper from '../../components/SiteWrapper';
 import Title from '../../components/Title/h2';
 
 export async function getStaticProps() {
-  const allPostsData: any[] = getSortedPostsData();
+  const allPostsData: any[] = await getSortedPosts(false);
   return {
     props: {
       allPostsData,

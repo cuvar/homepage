@@ -1,4 +1,4 @@
-import { getPostData, doesPostExist } from '../../util/posts';
+import { getPostById, doesPostExist } from '../../util/posts';
 import Head from 'next/head';
 import SiteWrapper from '../../components/SiteWrapper';
 import Title from '../../components/Title/h2';
@@ -7,10 +7,10 @@ import BreadCrumbs from '../../components/BreadCrumbs';
 import React from 'react';
 
 export async function getServerSideProps({ params }) {
-  const id: number = Number(params.id);
-  const postData = await getPostData(id);
-  let hasPrevPost = doesPostExist(id - 1);
-  let hasNextPost = doesPostExist(id + 1);
+  const id: string = params.id;
+  const postData = await getPostById(id);
+  let hasPrevPost = doesPostExist((Number(id) - 1).toString());
+  let hasNextPost = doesPostExist((Number(id) + 1).toString());
 
   return {
     props: {
@@ -83,7 +83,7 @@ export default function Post(props: IProps) {
 
       <Title>{props.postData.title}</Title>
       <div className='text-center italic'>{props.postData.date}</div>
-      <div dangerouslySetInnerHTML={{ __html: props.postData.contentHtml }} />
+      <div dangerouslySetInnerHTML={{ __html: props.postData.html }} />
       <div className='flex justify-between mt-8 space-x-8'>
         <Link
           icon={leftIcon}

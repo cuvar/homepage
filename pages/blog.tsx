@@ -1,12 +1,12 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
-import { getRecentPostsData } from '../util/posts';
+import { getRecentPosts } from '../util/posts';
 import Link from '../components/Link';
 import SiteWrapper from '../components/SiteWrapper';
 import Title from '../components/Title/h2';
 
 export async function getStaticProps() {
-  const allPostsData: any[] = getRecentPostsData();
+  const allPostsData: any[] = await getRecentPosts();
   return {
     props: {
       allPostsData,
