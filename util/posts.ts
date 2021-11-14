@@ -56,14 +56,14 @@ export async function getPostById(id: string): Promise<IPost> {
   const fileContents: any = fs.readFileSync(fullPath, 'utf8');
   const firstline: string = getFirstLineFromPost(id);
   const fileData: IPostFileData = await markdownToPostData(fileContents);
-
-  fs.writeFileSync(path.join(POST_DIR, `${id}.html`), fileData.html, 'utf8');
-
-  return {
+  let obj: IPost = {
     id,
     ...fileData,
     firstline,
   };
+  obj.html = await generateHtml(obj.id, obj.html);
+
+  return obj;
 }
 
 export async function getSortedPosts(asc: boolean): Promise<IPost[]> {
@@ -92,8 +92,24 @@ export async function createPost(content: string) {
   const newPostHTMLFilePath: string = path.join(POST_DIR, newPostHTMLFileName);
   let newFileData: IPostFileData = await markdownToPostData(content);
 
-  fs.writeFileSync(newPostMDFilePath, content, 'utf8');
+  let markdown = setFittingDate(content);
+
+  fs.writeFileSync(newPostMDFilePath, markdown, 'utf8');
   fs.writeFileSync(newPostHTMLFilePath, newFileData.html, 'utf8');
+}
+
+// IPOstFileData with md
+function setFittingDate(md: string): string {
+  const date = new Date();
+
+  const newDate = `${date.getFullYear()}-${
+    date.getMonth() + 1
+  }-${date.getDate()}`;
+
+  // replace using regex
+  const newMD: string = md.replace(/date:.*/g, `date: \'${newDate}\'`);
+
+  return newMD;
 }
 
 export function deletePost(id: string) {
@@ -123,6 +139,16 @@ function getFirstLineFromPost(id: string): string {
   // return 'First line of content';
 }
 
+export function doesPostExist(id: string): boolean {
+  const fileNames: string[] = fs.readdirSync(POST_DIR);
+  return fileNames.includes(`${id}.md`);
+}
+
+export async function getRecentPosts(): Promise<IPost[]> {
+  let sortedPosts: any[] = await getSortedPosts(false);
+  return sortedPosts.slice(0, SHOW_RECENT_POSTS_AMOUNT);
+}
+
 async function markdownToPostData(
   fileContents: string
 ): Promise<IPostFileData> {
@@ -132,25 +158,24 @@ async function markdownToPostData(
     .use(html)
     .process(matterResult.content);
   const htmlContent: string = processedContent.toString();
+  const styledHtml: string = setHTMLStyling(htmlContent);
 
   return {
     title: matterResult.data.title,
     date: matterResult.data.date,
-    html: htmlContent,
+    html: styledHtml,
   };
 }
 
-export function doesPostExist(id: string): boolean {
-  const fileNames: string[] = fs.readdirSync(POST_DIR);
-  return fileNames.includes(`${id}.md`);
+async function generateHtml(id: string, htmlContent: string): Promise<string> {
+  const styledHtml: string = await setHTMLStyling(htmlContent);
+  fs.writeFileSync(path.join(POST_DIR, `${id}.html`), styledHtml, 'utf8');
+  return styledHtml;
 }
 
-export function setPostStyling(postData: IPost) {
-  const modifiedPostData: any = postData;
-  return modifiedPostData;
-}
+function setHTMLStyling(html: string): string {
+  const modifiedHtml: any = html;
+  console.log(modifiedHtml);
 
-export async function getRecentPosts(): Promise<IPost[]> {
-  let sortedPosts: any[] = await getSortedPosts(false);
-  return sortedPosts.slice(0, SHOW_RECENT_POSTS_AMOUNT);
+  return modifiedHtml;
 }
