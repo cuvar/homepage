@@ -6,6 +6,12 @@ import Link from '../../components/Link/outline-icon';
 import BreadCrumbs from '../../components/BreadCrumbs';
 import React from 'react';
 
+interface IProps {
+  postData: any;
+  hasNextPost: boolean;
+  hasPrevPost: boolean;
+}
+
 export async function getServerSideProps({ params }) {
   const id: string = params.id;
   const postData = await getPostById(id);
@@ -52,12 +58,6 @@ const leftIcon = (
     />
   </svg>
 );
-
-interface IProps {
-  postData: any;
-  hasNextPost: boolean;
-  hasPrevPost: boolean;
-}
 
 export default function Post(props: IProps) {
   const head = (

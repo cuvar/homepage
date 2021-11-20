@@ -6,7 +6,11 @@ import SiteWrapper from '../../components/SiteWrapper';
 import OutlineButton from '../../components/Button/outline';
 import Title from '../../components/Title/h2';
 import * as cookie from '../../util/cookie';
-import * as auth from '../../util/auth';
+
+interface ICheckLogin {
+  loggedIn: boolean;
+  newToken: string;
+}
 
 const AddBlogForm: NextPage = () => {
   const head = (
@@ -190,11 +194,6 @@ Note that --- not considering the asterisk --- the actual text content starts at
   toast.success('Successfully copied to clipboard', {
     duration: 1500,
   });
-}
-
-interface ICheckLogin {
-  loggedIn: boolean;
-  newToken: string;
 }
 
 async function checkLogin(): Promise<ICheckLogin> {
