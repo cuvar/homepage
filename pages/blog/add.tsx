@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import type { NextPage } from 'next';
 import toast, { Toaster } from 'react-hot-toast';
 import Head from 'next/head';
@@ -19,6 +19,19 @@ const AddBlogForm: NextPage<IProps> = (props) => {
     </Head>
   );
   const [isLoggedIn, setIsLoggedIn] = React.useState(false);
+  // const jwtCookie = cookie.getCookie(document.cookie, 'jwt-cuvar');
+  useEffect(() => {
+    const checkingLogin = async () => {
+      const { loggedIn, newToken }: ICheckLogin = await checkLogin();
+      setIsLoggedIn(loggedIn);
+      if (isLoggedIn) {
+        cookie.deleteCookie('jwt-cuvar');
+        cookie.setCookie('jwt-cuvar', newToken, 1);
+      }
+    };
+
+    checkingLogin();
+  }, []);
 
   async function addPost(event) {
     event.preventDefault();
@@ -48,8 +61,6 @@ const AddBlogForm: NextPage<IProps> = (props) => {
       });
     }
   }
-
-  setIsLoggedIn(props.isLoggedIn);
 
   async function checkAuth(event: any) {
     event.preventDefault();
@@ -188,6 +199,7 @@ interface ICheckLogin {
   loggedIn: boolean;
   newToken: string;
 }
+
 async function checkLogin(): Promise<ICheckLogin> {
   const res = await fetch('/api/token', {
     body: JSON.stringify({
@@ -202,20 +214,5 @@ async function checkLogin(): Promise<ICheckLogin> {
   const body = JSON.parse(await res.text());
 
   // error handling done in api handler
-  return { loggedIn: true, newToken: body.token };
-}
-
-export async function getServerSideProps() {
-  const { loggedIn, newToken }: ICheckLogin = await checkLogin();
-  // update new cookie
-  if (loggedIn) {
-    cookie.deleteCookie('jwt-cuvar');
-    cookie.setCookie('jwt-cuvar', newToken, 1);
-  }
-
-  return {
-    props: {
-      isLoggedIn: loggedIn,
-    },
-  };
+  return { loggedIn: body.loggedIn, newToken: body.token };
 }
