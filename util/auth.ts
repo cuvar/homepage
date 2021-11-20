@@ -1,11 +1,7 @@
 const { scryptSync, randomBytes, timingSafeEqual } = require('crypto');
 import { createToken } from './jwt';
+import { IAuth } from './auth.types';
 require('dotenv').config();
-
-interface IAuth {
-  isAuthorized: boolean;
-  token: string;
-}
 
 export function isAuthorized(user: string, pwd: string): IAuth {
   return checkAuth(user, pwd);

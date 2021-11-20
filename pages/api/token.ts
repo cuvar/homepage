@@ -1,9 +1,6 @@
 import { checkToken, createToken } from '../../util/jwt';
+import { ICheckToken } from '../../util/auth.types';
 
-interface ICheckToken {
-  valid: boolean;
-  user: string;
-}
 export default function handler(req, res) {
   const check: ICheckToken = checkToken(req.body.token);
 

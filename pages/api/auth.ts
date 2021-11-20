@@ -1,9 +1,5 @@
 import { isAuthorized } from '../../util/auth';
-
-interface IAuth {
-  isAuthorized: boolean;
-  token: string;
-}
+import { IAuth } from '../../util/auth.types';
 
 export default function handler(req, res) {
   const auth: IAuth = isAuthorized(req.body.username, req.body.password);

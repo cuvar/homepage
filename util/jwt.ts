@@ -1,5 +1,6 @@
 const jwt = require('jsonwebtoken');
 require('dotenv').config();
+import { ICheckToken } from './auth.types';
 
 export function createToken(user: string) {
   const token: string = jwt.sign({ user: user }, process.env.JWT_SECRET, {
@@ -11,10 +12,6 @@ export function createToken(user: string) {
 // check, when it was issued at
 // if the time is still valid, refreshToken,
 // else, user needs to login again
-interface ICheckToken {
-  valid: boolean;
-  user: string;
-}
 export function checkToken(token: string): ICheckToken {
   let valid: boolean = false;
   let user: string = '';

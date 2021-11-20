@@ -8,10 +8,7 @@ import Title from '../../components/Title/h2';
 import * as cookie from '../../util/cookie';
 import * as auth from '../../util/auth';
 
-interface IProps {
-  isLoggedIn: boolean;
-}
-const AddBlogForm: NextPage<IProps> = (props) => {
+const AddBlogForm: NextPage = () => {
   const head = (
     <Head>
       <title>cuvar | Blog</title>
@@ -19,7 +16,7 @@ const AddBlogForm: NextPage<IProps> = (props) => {
     </Head>
   );
   const [isLoggedIn, setIsLoggedIn] = React.useState(false);
-  // const jwtCookie = cookie.getCookie(document.cookie, 'jwt-cuvar');
+
   useEffect(() => {
     const checkingLogin = async () => {
       const { loggedIn, newToken }: ICheckLogin = await checkLogin();
