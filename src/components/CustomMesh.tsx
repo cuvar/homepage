@@ -16,15 +16,17 @@ type GLTFResult = GLTF & {
 };
 
 export default function Model({ ...props }: JSX.IntrinsicElements["group"]) {
-  const group = useRef<THREE.Group>();
-  const { nodes, materials } = useGLTF("/form.gltf") as GLTFResult;
-  useFrame((state, delta) => (group.current.rotation.z += 0.03));
+  const group = useRef<THREE.Group>(null);
+  // const { nodes, materials } = useGLTF("/form.gltf") as GLTFResult;
+  useFrame((state, delta) => {
+    // @ts-ignore
+    group.current.rotation.z += 0.03;
+  });
 
   return (
     <group ref={group} {...props} dispose={null}>
       <directionalLight
         intensity={0.7}
-        decay={2}
         position={[200, 300, 300]}
         rotation={[-Math.PI / 4, 0.44, -0.4]}
       />
@@ -42,7 +44,7 @@ export default function Model({ ...props }: JSX.IntrinsicElements["group"]) {
         geometry={nodes.Icosahedron.geometry}
         material={nodes.Icosahedron.material}
       /> */}
-      <mesh visible position={[0, 0, 2]} rotation={[Math.PI / 2, 0, 0]}>
+      <mesh visible position={[0, 0, -2]} rotation={[Math.PI / 2, 2, 2.15]}>
         <icosahedronGeometry args={[1, 0]} />
         <meshStandardMaterial color="#AA7EFF" transparent />
       </mesh>
@@ -50,4 +52,4 @@ export default function Model({ ...props }: JSX.IntrinsicElements["group"]) {
   );
 }
 
-useGLTF.preload("/form.gltf");
+// useGLTF.preload("/form.gltf");

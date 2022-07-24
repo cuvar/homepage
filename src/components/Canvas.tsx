@@ -4,10 +4,10 @@ import Model from "./CustomMesh";
 
 function CustomCanvas() {
   return (
-    <div className="w-full">
+    <div className="w-full h-full">
       <Canvas>
-        <directionalLight position={[15, 10, 10]} />
         <Suspense fallback={null}>
+          <directionalLight position={[15, 10, 10]} />
           <Model />
         </Suspense>
       </Canvas>
