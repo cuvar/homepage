@@ -1,4 +1,4 @@
-import Heading from "./heading";
+import Heading from "./Heading";
 import Link from "./Link";
 
 export default function Navbar() {

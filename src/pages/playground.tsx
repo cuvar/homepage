@@ -1,6 +1,6 @@
 import type { NextPage } from "next";
 import CustomCanvas from "../components/Canvas";
-import Heading from "../components/heading";
+import Heading from "../components/Heading";
 import SiteWrapper from "../components/SiteWrapper";
 
 const Home: NextPage = () => {
