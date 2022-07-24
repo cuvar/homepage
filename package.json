@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@react-three/drei": "^9.17.3",
     "@react-three/fiber": "^8.2.0",
     "@trpc/client": "^9.26.0",
     "@trpc/next": "^9.26.0",

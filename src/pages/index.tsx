@@ -4,7 +4,7 @@ import { trpc } from "../utils/trpc";
 import CustomCanvas from "../components/Canvas";
 
 const Home: NextPage = () => {
-  const hello = trpc.useQuery(["example.hello", { text: "from tRPC" }]);
+  // const hello = trpc.useQuery(["example.hello", { text: "from tRPC" }]);
 
   return (
     <>
@@ -14,9 +14,10 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div className="w-screen min-h-screen flex flex-col justify-center items-center p-4 overflow-y-scroll">
+      <div className="w-screen min-h-screen flex flex-col justify-between items-center p-4 overflow-y-scroll">
         <h1 className="text-2xl font-bold">Hello world</h1>
         <CustomCanvas />
+        <h1 className="text-2xl font-bold">Hello world</h1>
       </div>
     </>
   );

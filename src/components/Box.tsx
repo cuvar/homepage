@@ -2,6 +2,7 @@ import * as THREE from "three";
 import { createRoot } from "react-dom/client";
 import React, { useRef, useState } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
+import { Clone, Sampler, useGLTF } from "@react-three/drei";
 
 function Box(props: JSX.IntrinsicElements["mesh"]) {
   const ref = useRef<THREE.Mesh>(null!);
@@ -23,7 +24,6 @@ function Box(props: JSX.IntrinsicElements["mesh"]) {
     </mesh>
   );
 }
-
 export default Box;
 
 // createRoot(document.getElementById("root") as HTMLElement).render();

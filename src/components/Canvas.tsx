@@ -1,14 +1,17 @@
 import { Canvas } from "@react-three/fiber";
-import Box from "../components/Box";
+import { Suspense } from "react";
+import Model from "./CustomMesh";
 
 function CustomCanvas() {
   return (
-    <Canvas>
-      <ambientLight />
-      <pointLight position={[10, 10, 10]} />
-      <Box position={[-2, 0, 0]} />
-      <Box position={[2, 0, 0]} />
-    </Canvas>
+    <div className="h-full w-full bg-green-300">
+      <Canvas>
+        <directionalLight position={[15, 10, 10]} />
+        <Suspense fallback={null}>
+          <Model />
+        </Suspense>
+      </Canvas>
+    </div>
   );
 }
 export default CustomCanvas;
