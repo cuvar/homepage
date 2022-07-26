@@ -23,4 +23,4 @@ jobs:
       - name: Build Docker image
         run: docker build -t nextjs-docker .
       - name: Run Docker image
-        run: docker run -p 3000:3000 nextjs-docker
+        run: docker run -p 3000:3000 -d nextjs-docker
