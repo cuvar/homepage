@@ -1,0 +1,26 @@
+name: Deploy to server
+
+on:
+  push:
+    branches: [pipeline]
+
+jobs:
+  Build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+      - name: Copy to production via SCP
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.PRIVATEKEY }}
+          source: "."
+          target: "homepage"
+          debug: true
+          rm: true
+      - name: Build Docker image
+        run: docker build -t nextjs-docker .
+      - name: Run Docker image
+        run: docker run -p 3000:3000 nextjs-docker
