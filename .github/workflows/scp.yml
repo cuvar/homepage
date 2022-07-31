@@ -21,7 +21,9 @@ jobs:
           debug: true
           rm: true
       - name: Stop running containers
-        run: docker stop homepage
+        run: | 
+          docker stop homepage
+          docker container rm homepage
       - name: Build image
         run: docker build -t homepage:latest .
       - name: Run using Docker
