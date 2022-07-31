@@ -21,7 +21,7 @@ jobs:
           debug: true
           rm: true
       - name: Stop running containers
-        run: sudo docker ps -q --filter ancestor=homepage:latest | sudo xargs docker stop
+        run: docker ps -q --filter ancestor=homepage:latest | xargs docker stop
       - name: Build image
         run: docker build -t homepage:latest .
       - name: Run using Docker
