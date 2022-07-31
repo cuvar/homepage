@@ -21,6 +21,6 @@ jobs:
           debug: true
           rm: true
       - name: Build Docker image
-        run: docker build -t nextjs-docker .
+        run: docker build -t homepage:latest .
       - name: Run Docker image
-        run: docker run -p 3000:3000 -d nextjs-docker
+        run: docker run -p 3000:3000 -d homepage:latest
