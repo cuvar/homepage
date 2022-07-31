@@ -46,7 +46,7 @@ export default function Model({ ...props }: JSX.IntrinsicElements["group"]) {
       /> */}
       <mesh visible position={[0, 0, -2]} rotation={[Math.PI / 2, 2, 2.15]}>
         <icosahedronGeometry args={[1, 0]} />
-        <meshStandardMaterial color="#AA7EFF" transparent />
+        <meshStandardMaterial color="#198a86" transparent />
       </mesh>
     </group>
   );
