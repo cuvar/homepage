@@ -29,7 +29,4 @@ jobs:
       # - name: Run using Docker
       #   run: docker run -p 3000:3000 -d --name homepage homepage:latest
 
-
-
-
-        // "Stop running containers" does not work right
+      # // "Stop running containers" does not work right
