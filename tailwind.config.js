@@ -12,6 +12,8 @@ module.exports = {
           500: "#E3F4F3",
         },
         cgreen: {
+          300: "#5eadaa", // https://maketintsandshades.com/#198a86
+          400: "#47a19e",
           500: "#198a86",
         }
       }
