@@ -15,7 +15,7 @@ const Home: NextPage = () => {
           />
           <Link href="https://blog.cuvar.dev" title="blog" tab="new" />
           <Link href="https://resumee.cuvar.dev" title="résumé" tab="new" />
-          <Link href="mailto:cuvar@outlook.com" title="mail" tab="new" />
+          <Link href="mailto:luca@cuvar.dev" title="mail" tab="new" />
         </div>
       </div>
     </SiteWrapper>
