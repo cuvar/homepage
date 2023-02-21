@@ -19,14 +19,14 @@ export default function SiteWrapper(props: IProps) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="w-full">
-        <Navbar />
+        {/* <Navbar /> */}
         <main className="w-screen">{props.children}</main>
         <script
           defer
           data-domain="cuvar.dev"
           src="https://plausible.io/js/script.js"
         ></script>
-        <Footer />
+        {/* <Footer /> */}
       </div>
     </>
   );

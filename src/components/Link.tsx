@@ -10,7 +10,11 @@ export default function CustomLink(props: IProps) {
   return (
     <Link href={props.href}>
       {props.tab === "new" ? (
-        <a className="hover:underline" target="_blank" rel="noopener">
+        <a
+          className="hover:underline"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           {props.title}
         </a>
       ) : (

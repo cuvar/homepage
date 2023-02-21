@@ -7,7 +7,6 @@ export default function Navbar() {
       <Heading text={"cuvar.dev"} type={"h1"}></Heading>
       <div className="flex space-x-4">
         <Link href="/" title="Home" />
-        <Link href="/playground" title="Playground" />
       </div>
     </div>
   );
