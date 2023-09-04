@@ -9,6 +9,7 @@ import CookieConsentComponent from "~/utils/cookie/CookieConsentComponent";
 const MyApp: AppType = ({ Component, pageProps }) => {
   return (
     <>
+      <Component {...pageProps} />
       <script
         defer
         data-domain={"cuvar.dev"}
@@ -17,7 +18,6 @@ const MyApp: AppType = ({ Component, pageProps }) => {
         src="https://plausible.vaevo.de/js/script.js"
       ></script>
       <CookieConsentComponent />
-      <Component {...pageProps} />
     </>
   );
 };
