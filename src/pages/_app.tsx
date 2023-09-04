@@ -12,10 +12,10 @@ const MyApp: AppType = ({ Component, pageProps }) => {
       <Component {...pageProps} />
       <script
         defer
-        data-domain={"cuvar.dev"}
+        data-domain="cuvar.dev"
         type="text/plain"
         data-cookiecategory="analytics"
-        src="https://plausible.vaevo.de/js/script.js"
+        src="https://plausible.io/js/script.js"
       ></script>
       <CookieConsentComponent />
     </>
