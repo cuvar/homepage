@@ -1,6 +1,6 @@
-/** @type {import('tailwindcss').Config} */
+import { type Config } from "tailwindcss";
 
-module.exports = {
+export default {
   content: ["./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
@@ -15,9 +15,9 @@ module.exports = {
           300: "#5eadaa", // https://maketintsandshades.com/#198a86
           400: "#47a19e",
           500: "#198a86",
-        }
-      }
+        },
+      },
     },
   },
   plugins: [],
-};
+} satisfies Config;

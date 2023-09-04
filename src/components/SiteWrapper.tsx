@@ -1,6 +1,4 @@
 import Head from "next/head";
-import Navbar from "./Navbar";
-import Footer from "./Footer";
 
 interface IProps {
   children: JSX.Element;
@@ -19,14 +17,14 @@ export default function SiteWrapper(props: IProps) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="w-full">
-        {/* <Navbar /> */}
-        <main className="w-screen">{props.children}</main>
+        <main className="h-screen w-screen bg-slate-900 text-neutral-200">
+          {props.children}
+        </main>
         <script
           defer
           data-domain="cuvar.dev"
           src="https://plausible.io/js/script.js"
         ></script>
-        {/* <Footer /> */}
       </div>
     </>
   );
