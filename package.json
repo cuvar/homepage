@@ -19,6 +19,7 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "superjson": "^1.13.1",
+    "vanilla-cookieconsent": "^2.9.2",
     "zod": "^3.21.4"
   },
   "devDependencies": {

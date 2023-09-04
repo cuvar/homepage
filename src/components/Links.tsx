@@ -1,16 +1,11 @@
 export default function Links() {
   return (
     <div className="flex flex-col items-center justify-center space-y-4">
-      <a
-        href="https://github.com/cuvar"
-        target="_blank"
-        rel="noopener"
-        className="hover:underline active:opacity-80"
-      >
+      <a href="/a/github" className="hover:underline active:opacity-80">
         GitHub
       </a>
       <a
-        href="https://www.linkedin.com/in/luca-mueller01/"
+        href="/a/linkedin"
         target="_blank"
         rel="noopener"
         className="hover:underline active:opacity-80"
@@ -18,7 +13,7 @@ export default function Links() {
         LinkedIn
       </a>
       <a
-        href="https://resumee.cuvar.dev"
+        href="/a/resumee"
         target="_blank"
         rel="noopener"
         className="hover:underline active:opacity-80"
