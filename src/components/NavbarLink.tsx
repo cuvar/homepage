@@ -9,7 +9,7 @@ type Props = {
 };
 
 export default function NavbarLink(props: Props) {
-  const activeClass = "bg-cgreen-500 text-white";
+  const activeClass = "bg-cgreen-500 text-white font-bold";
 
   function handleClick() {
     if (props.onclick) {
