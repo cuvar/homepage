@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Footer from "./Footer";
+import Navbar from "./Navbar";
 
 interface IProps {
   children: JSX.Element;
@@ -18,6 +19,7 @@ export default function SiteWrapper(props: IProps) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="h-screen w-screen">
+        <Navbar />
         <main className="h-full w-full bg-slate-900 text-neutral-200">
           {props.children}
         </main>
