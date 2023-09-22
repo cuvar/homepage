@@ -21,6 +21,14 @@ export default function Links() {
         Resumee
       </a>
       <a
+        href="/a/blog"
+        target="_blank"
+        rel="noopener"
+        className="hover:underline active:opacity-80"
+      >
+        Blog
+      </a>
+      <a
         href="mailto:luca@cuvar.dev"
         className="hover:underline active:opacity-80"
       >

@@ -16,11 +16,14 @@ export const config = {
   matcher: "/a/:path*",
 };
 
-type LinkType = "/a/github" | "/a/linkedin" | "/a/resumee";
+type LinkType = "/a/github" | "/a/linkedin" | "/a/resumee" | "/a/blog";
 
 function isLinkType(path: string): path is LinkType {
   return (
-    path === "/a/github" || path === "/a/linkedin" || path === "/a/resumee"
+    path === "/a/github" ||
+    path === "/a/linkedin" ||
+    path === "/a/resumee" ||
+    path === "/a/blog"
   );
 }
 
@@ -31,6 +34,8 @@ function mapLinks(key: LinkType): string {
     return "https://www.linkedin.com/in/luca-mueller01/";
   } else if (key === "/a/resumee") {
     return "https://resumee.cuvar.dev";
+  } else if (key === "/a/blog") {
+    return "https://blog.cuvar.dev";
   } else {
     return "https://cuvar.dev";
   }
