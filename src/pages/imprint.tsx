@@ -10,6 +10,7 @@ export default function Home() {
           alt={"Imprint"}
           width={600}
           height={500}
+          className="px-10"
         ></Image>
       </div>
     </SiteWrapper>
