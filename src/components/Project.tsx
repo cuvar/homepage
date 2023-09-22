@@ -10,7 +10,6 @@ type Props = {
 export default function Project(props: Props) {
   const url = new URL(props.url);
   const host = url.host + url.pathname;
-  console.log(host);
 
   return (
     <div className="space-y-4 rounded-md border border-transparent px-4 py-4 hover:bg-slate-800">
