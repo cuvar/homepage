@@ -23,8 +23,8 @@ export default function Home() {
 
   return (
     <SiteWrapper>
-      <div className="flex h-full w-full items-center justify-center">
-        <div className="grid grid-cols-2 gap-4">
+      <div className="flex h-full w-full flex-col items-center justify-center">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-3">
           {projects.map((p: ProjectItem) => (
             <Project key={p.name} {...p} />
           ))}

@@ -13,10 +13,13 @@ export default function Project(props: Props) {
   console.log(host);
 
   return (
-    <div className="space-y-4 rounded-md border border-white px-4 py-4">
+    <div className="space-y-4 rounded-md border border-transparent px-4 py-4 hover:bg-slate-800">
       <h2 className="text-xl font-bold">{props.name}</h2>
       <p>{props.description}</p>
-      <Link href={props.url} className="flex space-x-2 text-sm">
+      <Link
+        href={props.url}
+        className="flex space-x-2 text-sm hover:text-cgreen-300"
+      >
         <span>{linkIcon}</span>
         <span>{host}</span>
       </Link>
