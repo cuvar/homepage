@@ -17,6 +17,14 @@ export default function Navbar() {
       text: "Projects",
       href: "/projects",
     },
+    {
+      text: "Blog",
+      href: "/a/blog",
+    },
+    {
+      text: "Resumee",
+      href: "/a/resumee",
+    },
   ];
 
   function handleClick(item: NavItem) {
