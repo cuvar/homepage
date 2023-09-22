@@ -58,13 +58,13 @@ export default function Navbar() {
         {showMenu && (
           <button
             onClick={() => setShowMenu(false)}
-            className="z-20 mx-4 text-black"
+            className="fixed z-20 mx-4 text-black"
           >
             {xIcon}
           </button>
         )}
         {showMenu && (
-          <ul className="absolute top-0 z-10 flex h-screen w-screen flex-col items-center justify-center space-y-8 bg-white text-xl text-black">
+          <ul className="fixed top-0 z-10 flex h-screen w-screen flex-col items-center justify-center space-y-8 bg-white text-xl text-black">
             {links.map((link) => (
               <li key={link.text}>
                 <Link
