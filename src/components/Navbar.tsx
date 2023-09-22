@@ -37,7 +37,7 @@ export default function Navbar() {
 
   return (
     <nav className="flex w-full items-center justify-center bg-slate-900 py-6 text-neutral-200">
-      <ul className="hidden rounded-full bg-slate-600 px-1 py-2 text-white sm:flex">
+      <ul className="hidden rounded-full bg-slate-600 px-1 py-2.5 text-white sm:flex">
         {links.map((link) => (
           <li key={link.text}>
             <NavbarLink
