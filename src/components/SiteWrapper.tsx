@@ -18,9 +18,9 @@ export default function SiteWrapper(props: IProps) {
         ></meta>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className="h-screen w-screen">
+      <div className="w-screen bg-slate-900">
         <Navbar />
-        <main className="h-full w-full bg-slate-900 text-neutral-200">
+        <main className="h-screen w-full text-neutral-200">
           {props.children}
         </main>
         <Footer />
