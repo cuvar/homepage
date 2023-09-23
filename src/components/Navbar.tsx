@@ -64,7 +64,7 @@ export default function Navbar() {
           </button>
         )}
         {showMenu && (
-          <ul className="fixed bottom-0 top-0 z-10 flex w-screen flex-col items-center justify-center space-y-8 bg-white text-xl text-black">
+          <ul className="fixed top-0 z-10 flex h-[100dvh] w-screen flex-col items-center justify-center space-y-8 bg-white text-xl text-black">
             {links.map((link) => (
               <li key={link.text}>
                 <Link
