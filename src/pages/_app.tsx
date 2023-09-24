@@ -1,4 +1,5 @@
 import { type AppType } from "next/app";
+import Script from "next/script";
 
 import { api } from "~/utils/api";
 
@@ -10,13 +11,14 @@ const MyApp: AppType = ({ Component, pageProps }) => {
   return (
     <>
       <Component {...pageProps} />
-      <script
+      <Script
         defer
         data-domain="cuvar.dev"
+        strategy="afterInteractive"
         type="text/plain"
         data-cookiecategory="analytics"
-        src="https://plausible.io/js/script.js"
-      ></script>
+        src="https://plausible.io/js/plausible.js"
+      ></Script>
       <CookieConsentComponent />
     </>
   );
