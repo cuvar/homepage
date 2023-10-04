@@ -5,13 +5,12 @@ export default function Home() {
   return (
     <SiteWrapper>
       <div className="flex h-2/3 w-full flex-col items-center justify-center">
-        <Image
-          src={"/imprint.jpeg"}
-          alt={"Imprint"}
-          width={600}
-          height={500}
-          className="px-10"
-        ></Image>
+        <div className="space-y-2">
+          <p>Luca Müller</p>
+          <p>Willi-Graf-Straße 8</p>
+          <p>69190 Walldorf</p>
+          <p>luca [@] cuvar [dot] dev</p>
+        </div>
       </div>
     </SiteWrapper>
   );
