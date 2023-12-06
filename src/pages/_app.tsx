@@ -15,8 +15,6 @@ const MyApp: AppType = ({ Component, pageProps }) => {
         defer
         data-domain="cuvar.dev"
         strategy="afterInteractive"
-        type="text/plain"
-        data-cookiecategory="analytics"
         src="https://plausible.io/js/plausible.js"
       ></Script>
       {/* <CookieConsentComponent /> */}
