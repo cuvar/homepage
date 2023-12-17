@@ -16,7 +16,7 @@ export default function SiteWrapper(props: IProps) {
           name="viewport"
           content="width=device-width, initial-scale=1"
         ></meta>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/favicon.svg" />
       </Head>
       <div className="w-screen bg-slate-900">
         <Navbar />
