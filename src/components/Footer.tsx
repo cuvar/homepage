@@ -1,5 +1,3 @@
-import Link from "next/link";
-
 export default function Footer() {
   return (
     <footer className="flex w-full items-center justify-center space-x-4 bg-slate-900 py-6 text-neutral-200">
@@ -12,9 +10,9 @@ export default function Footer() {
       >
         Cookies
       </button> */}
-      <Link href="/imprint" className="hover:underline active:opacity-90">
+      {/* <Link href="/imprint" className="hover:underline active:opacity-90">
         Imprint
-      </Link>
+      </Link> */}
     </footer>
   );
 }

@@ -1,5 +1,4 @@
 import Head from "next/head";
-import Footer from "./Footer";
 import Navbar from "./Navbar";
 
 interface IProps {
@@ -23,7 +22,7 @@ export default function SiteWrapper(props: IProps) {
         <main className="h-screen w-full text-neutral-200">
           {props.children}
         </main>
-        <Footer />
+        {/* <Footer /> */}
       </div>
     </>
   );
