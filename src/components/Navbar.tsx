@@ -1,9 +1,9 @@
-import { useState } from "react";
-import NavbarLink from "./NavbarLink";
-import type { NavItem } from "~/utils/types";
-import { useRouter } from "next/router";
-import { hamburgerIcon, xIcon } from "~/utils/icons";
 import Link from "next/link";
+import { useRouter } from "next/router";
+import { useState } from "react";
+import { hamburgerIcon, xIcon } from "~/utils/icons";
+import type { NavItem } from "~/utils/types";
+import NavbarLink from "./NavbarLink";
 
 export default function Navbar() {
   const router = useRouter();
@@ -25,7 +25,7 @@ export default function Navbar() {
       href: "/a/blog",
     },
     {
-      text: "Resumee",
+      text: "CV",
       href: "/a/resumee",
     },
   ];

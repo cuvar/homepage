@@ -1,5 +1,5 @@
-import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
+import { NextResponse } from "next/server";
 
 // This function can be marked `async` if using `await` inside
 export function middleware(request: NextRequest) {
@@ -16,12 +16,13 @@ export const config = {
   matcher: "/a/:path*",
 };
 
-type LinkType = "/a/github" | "/a/linkedin" | "/a/resumee" | "/a/blog";
+type LinkType = "/a/github" | "/a/linkedin" | "/a/x" | "/a/resumee" | "/a/blog";
 
 function isLinkType(path: string): path is LinkType {
   return (
     path === "/a/github" ||
     path === "/a/linkedin" ||
+    path === "/a/x" ||
     path === "/a/resumee" ||
     path === "/a/blog"
   );
@@ -32,8 +33,10 @@ function mapLinks(key: LinkType): string {
     return "https://github.com/cuvar";
   } else if (key === "/a/linkedin") {
     return "https://www.linkedin.com/in/luca-mueller01/";
+  } else if (key === "/a/x") {
+    return "https://x.com/devluca__";
   } else if (key === "/a/resumee") {
-    return "https://resumee.cuvar.dev";
+    return "https://cv.cuvar.dev";
   } else if (key === "/a/blog") {
     return "https://blog.cuvar.dev";
   } else {
