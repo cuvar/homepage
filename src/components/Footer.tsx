@@ -1,6 +1,6 @@
 export default function Footer() {
   return (
-    <footer className="flex w-full items-center justify-center space-x-4 bg-slate-900 py-6 text-neutral-200">
+    <footer className="flex w-full items-center justify-center space-x-4 bg-gray-900 py-6 text-neutral-200">
       {/* <button
         type="button"
         className="hover:underline active:opacity-90"

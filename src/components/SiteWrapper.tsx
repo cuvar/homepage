@@ -17,11 +17,9 @@ export default function SiteWrapper(props: IProps) {
         ></meta>
         <link rel="icon" href="/favicon.svg" />
       </Head>
-      <div className="w-screen bg-slate-900">
+      <div className="flex h-screen w-screen flex-col bg-gray-900">
         <Navbar />
-        <main className="h-screen w-full text-neutral-200">
-          {props.children}
-        </main>
+        <main className="h-full w-full text-neutral-200">{props.children}</main>
         {/* <Footer /> */}
       </div>
     </>

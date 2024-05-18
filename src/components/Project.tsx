@@ -12,7 +12,7 @@ export default function Project(props: Props) {
   const host = url.host + url.pathname;
 
   return (
-    <div className="space-y-4 rounded-md border border-transparent px-4 py-4 hover:bg-slate-800">
+    <div className="space-y-4 rounded-md border border-transparent px-4 py-4 hover:bg-gray-800">
       <h2 className="text-xl font-bold">{props.name}</h2>
       <p>{props.description}</p>
       <Link

@@ -18,11 +18,11 @@ export default function Navbar() {
     },
     {
       text: "Projects",
-      href: "/a/projects",
+      href: "https://github.com/cuvar",
     },
     {
       text: "CV",
-      href: "/a/resumee",
+      href: "https://cv.cuvar.dev",
     },
   ];
 
@@ -32,8 +32,8 @@ export default function Navbar() {
   }
 
   return (
-    <nav className="flex w-full items-center justify-center bg-slate-900 py-6 text-neutral-200">
-      <ul className="hidden rounded-md bg-slate-800 px-1 py-2.5 text-white sm:flex">
+    <nav className="flex w-full items-center justify-center bg-gray-900 py-6 text-neutral-200">
+      <ul className="hidden rounded-md bg-gray-800 px-1 py-2.5 text-white sm:flex">
         {links.map((link) => (
           <li key={link.text}>
             <NavbarLink
@@ -60,7 +60,7 @@ export default function Navbar() {
           </button>
         )}
         {showMenu && (
-          <ul className="fixed top-0 z-10 flex h-[100dvh] w-screen flex-col items-center justify-center space-y-8 bg-slate-900 text-xl text-white">
+          <ul className="fixed top-0 z-10 flex h-[100dvh] w-screen flex-col items-center justify-center space-y-8 bg-gray-900 text-xl text-white">
             {links.map((link) => (
               <li key={link.text}>
                 <Link
