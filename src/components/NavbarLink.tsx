@@ -20,7 +20,7 @@ export default function NavbarLink(props: Props) {
   return (
     <Link
       href={props.href}
-      className={`rounded-full px-4 py-2 ${
+      className={`rounded-md px-4 py-2 ${
         props.active == true ? activeClass : ""
       }`}
       onClick={handleClick}
