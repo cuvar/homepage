@@ -16,7 +16,13 @@ export const config = {
   matcher: "/a/:path*",
 };
 
-type LinkType = "/a/github" | "/a/linkedin" | "/a/x" | "/a/resumee" | "/a/blog";
+type LinkType =
+  | "/a/github"
+  | "/a/linkedin"
+  | "/a/x"
+  | "/a/resumee"
+  | "/a/blog"
+  | "/a/projects";
 
 function isLinkType(path: string): path is LinkType {
   return (
@@ -24,6 +30,7 @@ function isLinkType(path: string): path is LinkType {
     path === "/a/linkedin" ||
     path === "/a/x" ||
     path === "/a/resumee" ||
+    path === "/a/projects" ||
     path === "/a/blog"
   );
 }
@@ -37,6 +44,8 @@ function mapLinks(key: LinkType): string {
     return "https://x.com/devluca__";
   } else if (key === "/a/resumee") {
     return "https://cv.cuvar.dev";
+  } else if (key === "/a/projects") {
+    return "https://github.com/cuvar";
   } else if (key === "/a/blog") {
     return "https://blog.cuvar.dev";
   } else {

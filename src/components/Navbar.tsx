@@ -18,7 +18,7 @@ export default function Navbar() {
     },
     {
       text: "Projects",
-      href: "/projects",
+      href: "/a/projects",
     },
     {
       text: "CV",
