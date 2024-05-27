@@ -19,7 +19,9 @@ export default function SiteWrapper(props: IProps) {
       </Head>
       <div className="flex h-screen w-screen flex-col bg-gray-900">
         <Navbar />
-        <main className="h-full w-full text-neutral-200">{props.children}</main>
+        <main className="h-full w-full pt-10 text-neutral-200">
+          {props.children}
+        </main>
         {/* <Footer /> */}
       </div>
     </>
