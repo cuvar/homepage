@@ -33,7 +33,7 @@ export default function Navbar() {
 
   return (
     <nav className="flex w-full items-center justify-center bg-gray-900 py-6 text-neutral-200">
-      <ul className="hidden rounded-md bg-gray-800 px-1 py-2.5 text-white sm:flex">
+      <ul className="hidden rounded-md bg-gray-800 px-1 py-2.5 text-white shadow-xl shadow-gray-900 sm:flex">
         {links.map((link) => (
           <li key={link.text}>
             <NavbarLink
