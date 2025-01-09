@@ -1,4 +1,4 @@
-import { ghIcon, linkedInIcon, mailIcon, twitterIcon } from "~/utils/icons";
+import { ghIcon, linkedInIcon, mailIcon } from "~/utils/icons";
 
 export default function Links() {
   return (
@@ -16,14 +16,6 @@ export default function Links() {
         className="transition-all hover:scale-125 hover:underline active:opacity-80"
       >
         {linkedInIcon}
-      </a>
-      <a
-        href="/a/x"
-        target="_blank"
-        rel="noopener"
-        className="transition-all hover:scale-125 hover:underline active:opacity-80"
-      >
-        {twitterIcon}
       </a>
       <a
         href="mailto:luca@cuvar.dev"
